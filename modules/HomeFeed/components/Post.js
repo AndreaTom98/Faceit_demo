@@ -39,16 +39,13 @@ class Post extends React.Component {
 
   renderUserTitle = () => {
     const { imageSource, userName } = this.props;
-    let image = {
-      uri: imageSource
-    };
     return (
       <View style={styles.userNameContainer}>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
           onPress={this.goToUserProfile}
         >
-          <Image style={styles.image} source={image} />
+          <Image style={styles.image} source={{uri: imageSource}} />
           <Text style={styles.userName}>{userName}</Text>
         </TouchableOpacity>
       </View>
@@ -60,7 +57,7 @@ class Post extends React.Component {
     const text = bodyText.slice(0, 150);
     return (
       <View style={styles.userBodyContainer}>
-        <Text style={styles.bodyText}>{text}</Text>
+        <Text style={styles.bodyText}>{text}... <Text style={styles.readMore}>Read more</Text></Text>
       </View>
     );
   };
@@ -102,6 +99,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 3
+  },
+  readMore: {
+    color: '#3b51f7',
+    textDecorationLine: 'underline',
   }
 });
 

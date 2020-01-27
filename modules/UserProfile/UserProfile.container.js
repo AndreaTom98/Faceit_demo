@@ -5,12 +5,9 @@ class UserProfile extends React.Component {
   render() {
     const {navigation} = this.props;
     const imageSource = navigation.getParam('imageSource');
-    let image = { 
-        uri: imageSource,
-    }
     return (
       <View>
-        <ImageBackground blurRadius={10} style={styles.imageBackground} source={image}>
+        <ImageBackground blurRadius={10} style={styles.imageBackground} source={{uri: imageSource}}>
         </ImageBackground>
         {this._renderTopInfo()}
       </View>
@@ -21,12 +18,9 @@ class UserProfile extends React.Component {
       const userName = navigation.getParam('userName');
       const userLocation = navigation.getParam('userLocation')
       const imageSource = navigation.getParam('imageSource');
-      let image = { 
-          uri: imageSource,
-      }
       return (
           <View style={{flexDirection: 'row'}}>
-            <Image source={image} style={styles.profile} />
+            <Image source={{uri: imageSource}} style={styles.profile} />
             <View style={{marginLeft: 25, marginTop: 10, alignItems: 'center'}}>
                 <Text style={styles.userName}>{userName}</Text>
                 <Text>{userLocation.country}, {userLocation.state}</Text>

@@ -6,13 +6,18 @@ import UserProfile from '../modules/UserProfile/UserProfile.container';
 
 const StackNavigator = createStackNavigator({
   home: {
-    screen: Home
+    screen: Home,
   },
   singlePost: {
     screen: SinglePost
   },
   userProfile: {
     screen: UserProfile,
+  }
+}, {
+  initialRouteName: 'home',
+  defaultNavigationOptions: {
+    headerTintColor: 'black'
   }
 });
 

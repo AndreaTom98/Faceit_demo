@@ -7,12 +7,9 @@ class SinglePost extends React.Component {
     const userName = navigation.getParam('userName');
     const imageSource = navigation.getParam('imageSource');
     const bodyText = navigation.getParam('bodyText');
-    let image = { 
-        uri: imageSource,
-    }
     return (
       <View style={styles.container}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{uri: imageSource}} />
         <Text style={styles.userName}>{userName}</Text>
         <Text style={styles.bodyText}>{bodyText}</Text>
       </View>
